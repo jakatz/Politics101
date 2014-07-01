@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  .row
+    .small-10.columns.small-centered.text-center
+      h1 Welcome #{username}
+    .small-10.columns.small-centered.text-center
+      //-
+        this is for medium and large screens
+
+      .small-centered.text-center.small-4.columns.show-for-medium-up
+        h5 Please select an option
+      .small-centered.text-center.small-6.columns.panel.show-for-large-up
+        .panel.callout.radius
+          a.button.alert.mybutton Republican
+        .panel.callout.radius
+          a.button.mybutton Democrat
+        .panel.callout.radius
+          a.button.success.mybutton Other
+
+      .small-centered.text-center.small-6.columns.panel.show-for-medium-only
+        .panel.callout.radius
+          a.button.alert.mybutton Rep
+        .panel.callout.radius
+          a.button.mybutton Dem
+        .panel.callout.radius
+          a.button.success.mybutton Other
+
+
+      .small-centered.text-center.small-9.columns.show-for-small-down
+        h6 Please select an option
+      .small-centered.text-center.small-11.columns.show-for-small-down
+          .small-11.small-centered.columns
+            a.button.alert.tiny Rep
+          .small-11.small-centered.columns
+            a.button.tiny Dem
+          .small-11.small-centered.columns
+            a.button.success.tiny other

@@ -1,7 +1,14 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1.text-center= title
+  p.text-center Welcome to #{title}
   .row
-    .panel hello
+    .panel.small-6.small-centered.columns.text-center
+      form(name="login", action="/login", method="post")
+        label.text-left Username
+          input(type="text", name="user")
+        label.text-left password
+          input(type="password", name="pass")
+        a.button.success( type="submit", value="login") Submit
+
