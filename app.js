@@ -12,16 +12,6 @@ var home = require('./routes/home');
 
 var app = express();
 
-// start sequelize
-sequelize
-  .authenticate()
-  .complete(function(err) {
-    if (!!err) {
-        console.log('Unable to connect to the database:', err);
-    } else {
-        console.log('Connection has been established successfully.');
-    }
-  })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,13 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 mongoose.connect('mongodb://localhost:27017/civicappDB');
-
-// fs.readdirSync(__dirname+ '/models').forEach(function(filename){
-//     if(~filename.indexOf('.js')){
-//         require( __dirname + '/models/'+ filename)};
-// });
-
-
 
 app.use('/', home);
 
