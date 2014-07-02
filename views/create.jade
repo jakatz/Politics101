@@ -5,11 +5,12 @@ block content
   p.text-center Welcome to #{title}
   .row
     .panel.small-6.small-centered.columns.text-center
-      form(name="login", action="/user/", method="post")
+      form(name="login", action="/create", method="post")
         label.text-left Username
           input(type="text", name="user")
         label.text-left password
           input(type="password", name="pass")
+        label.text-left location
+          input(type="text", name="loc")
         button.success( type="submit" ) Submit
-        a.button.success(href='/create' type="submit" ) Create New
 

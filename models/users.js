@@ -1,26 +1,11 @@
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define('User', {
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    party: DataTypes.STRING
-  }
-  // , {
-    // classMethods: {
-    //   associate: function(models) {
-    //     User.hasMany(models.Task)
-    //   }
-    // }
-  })
 
-  return User
-}
+// var mongoose = require('mongoose');
+// var Schema = mongoose.Schema;
 
+// var usersSchema = new Schema({
+//     user: String,
+//     pass: String,
+//     loc: String
+// });
 
-// var User = sequelize.define('User', {
-//   username: Sequelize.STRING,
-//   password: Sequelize.STRING,
-//   party: Sequelize.STRING
-// }), {
-//   tableName: 'user_table',
-//   timestamps: true
-// })
+// var User = mongoose.model('users', usersSchema);

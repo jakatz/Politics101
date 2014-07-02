@@ -4,16 +4,11 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var Sequelize = require('sequelize')
-var sequelize = new Sequelize('poliDB', 'username', 'password', {
-    dialect: "postgres",
-    port: 5342
-})
 
-var db = require('./models');
+var mongoose = require('mongoose');
+var fs = require('fs');
 
 var home = require('./routes/home');
-var user = require('./routes/user');
 
 var app = express();
 
@@ -39,8 +34,17 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+mongoose.connect('mongodb://localhost:27017/civicappDB');
+
+// fs.readdirSync(__dirname+ '/models').forEach(function(filename){
+//     if(~filename.indexOf('.js')){
+//         require( __dirname + '/models/'+ filename)};
+// });
+
+
+
 app.use('/', home);
-app.use('/user', user);
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
