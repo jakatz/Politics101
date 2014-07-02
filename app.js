@@ -4,11 +4,29 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var Sequelize = require('sequelize')
+var sequelize = new Sequelize('poliDB', 'username', 'password', {
+    dialect: "postgres",
+    port: 5342
+})
+
+var db = require('./models');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// start sequelize
+sequelize
+  .authenticate()
+  .complete(function(err) {
+    if (!!err) {
+        console.log('Unable to connect to the database:', err);
+    } else {
+        console.log('Connection has been established successfully.');
+    }
+  })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
