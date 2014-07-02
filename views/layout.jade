@@ -1,7 +1,71 @@
-doctype html
+//- doctype 5
+
+//paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+//if lt IE 7
+  html(class="no-js lt-ie9 lt-ie8 lt-ie7", lang="en")
+//if IE 7
+  html(class="no-js lt-ie9 lt-ie8", lang="en")
+//if IE 8
+  html(class="no-js lt-ie9", lang="en")
+//if gt IE 8
+  html(class="no-js", lang="en")
+
 html
   head
+    meta(charset="utf-8")
+    //Set the viewport width to device width for mobile
+    meta(name="viewport", content="width=device-width")
+
+    title= title
+
+    //Included CSS Files (Uncompress)
+    link(rel="stylesheet", href="/stylesheets/foundation.css")
+
+    //Included CSS Files (Compressed)
+    link(rel="stylesheet", href="/stylesheets/foundation.min.css")
+    link(rel="stylesheet", href="/stylesheets/app.css")
+
+    script(src="/javascripts/modernizr.foundation.js")
+
+    //IE Fix for HTML5 Tags
+    //if lt IE 9
+      script(src="http://html5shiv.googlecode.com/svn/trunk/html5.js")
+
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    script(src='/js/vendor/jquery.js')
+    script(src='/js/vendor/fastclick.js')
+    script(src='/js/foundation.min.js')
+
+    nav.top-bar(data-topbar='data-topbar')
+      ul.title-area
+          li.name
+            a(href='/')
+              img(href='./public/makerslogo.png')
+          //
+             Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+          li.toggle-topbar.menu-icon
+            a(href='#')
+              span Menu
+        section.top-bar-section
+          //
+             Right Nav Section
+          ul.right
+            li.has-dropdown
+              a(href='#') Options
+              ul.dropdown
+                li
+                  a(href='/user') username
+          //
+             Left Nav Section
+          ul.left
+            li
+              a(href='/') Sign-out
+
+
+
     block content
+    script
+      $(document).foundation();
+
