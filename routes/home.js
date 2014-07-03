@@ -20,6 +20,10 @@ router.get('/', function(req, res) {
   res.render('home', { title: 'Politics 101' });
 });
 
+router.get('https://www.googleapis.com/civicinfo/us_v1/representatives/lookup/AIzaSyAlys4qOEvvXwEbtoim0OCsFki_JL-hSQg', function(req, res){
+  res.send(req);
+})
+
 router.post('/user', function(req, res){
   res.redirect('/user/' + req.body.user);
 });

@@ -4,6 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var civicInfo = require("civic-info")({apiKey: 'AIzaSyAlys4qOEvvXwEbtoim0OCsFki_JL-hSQg'});
 
 var mongoose = require('mongoose');
 var fs = require('fs');
@@ -12,6 +13,12 @@ var home = require('./routes/home');
 
 var app = express();
 
+// API Usage
+// civicInfo.representativeInfo({address: '611 Mission St, San Francisco'}, function(error, data) {
+//     console.log(data);
+// });
+
+app.post('https://www.googleapis.com/civicinfo/us_v1/representatives/lookup/AIzaSyAlys4qOEvvXwEbtoim0OCsFki_JL-hSQg')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
